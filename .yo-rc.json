@@ -1,0 +1,43 @@
+{
+  "generator-jhipster": {
+    "promptValues": {
+      "packageName": "com.platemill.myapp",
+      "nativeLanguage": "en"
+    },
+    "jhipsterVersion": "6.0.0",
+    "applicationType": "monolith",
+    "baseName": "jhipster",
+    "packageName": "com.platemill.myapp",
+    "packageFolder": "com/platemill/myapp",
+    "serverPort": "8080",
+    "authenticationType": "jwt",
+    "cacheProvider": false,
+    "enableHibernateCache": true,
+    "websocket": false,
+    "databaseType": "sql",
+    "devDatabaseType": "h2Disk",
+    "prodDatabaseType": "mysql",
+    "searchEngine": false,
+    "messageBroker": false,
+    "serviceDiscoveryType": "eureka",
+    "buildTool": "maven",
+    "enableSwaggerCodegen": false,
+    "jwtSecretKey": "NzhmY2EyYzY0MDRlZTllOTMyYTU1MmU2OWJlM2MzNDM1YTBkMjg0Njc1NjI3OTdiNDUyYmY2ZTc0ZDllNzQ1OGU4YjFjMDg4YTY0NmQzNmIzMThkY2RjZGFjZjZhZmYxYWEwYWVjOTM4ZDUwODkyMDhmNTM3MTQ5M2RhYzQ5ZDM=",
+    "clientFramework": "angularX",
+    "clientTheme": "minty",
+    "clientThemeVariant": "primary",
+    "useSass": true,
+    "clientPackageManager": "npm",
+    "testFrameworks": [],
+    "jhiPrefix": "jhi",
+    "entitySuffix": "",
+    "dtoSuffix": "DTO",
+    "otherModules": [],
+    "enableTranslation": true,
+    "nativeLanguage": "en",
+    "languages": [
+      "en",
+      "hi"
+    ]
+  }
+}
