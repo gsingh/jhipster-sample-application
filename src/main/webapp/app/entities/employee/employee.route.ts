@@ -57,7 +57,7 @@ export const employeeRoute: Routes = [
       employee: EmployeeResolve
     },
     data: {
-      authorities: ['ROLE_USER'],
+      authorities: ['ROLE_ADMIN'],
       pageTitle: 'jhipsterApp.employee.home.title'
     },
     canActivate: [UserRouteAccessService]
@@ -69,7 +69,7 @@ export const employeeRoute: Routes = [
       employee: EmployeeResolve
     },
     data: {
-      authorities: ['ROLE_USER'],
+      authorities: ['ROLE_ADMIN'],
       pageTitle: 'jhipsterApp.employee.home.title'
     },
     canActivate: [UserRouteAccessService]
@@ -84,7 +84,7 @@ export const employeePopupRoute: Routes = [
       employee: EmployeeResolve
     },
     data: {
-      authorities: ['ROLE_USER'],
+      authorities: ['ROLE_ADMIN'],
       pageTitle: 'jhipsterApp.employee.home.title'
     },
     canActivate: [UserRouteAccessService],

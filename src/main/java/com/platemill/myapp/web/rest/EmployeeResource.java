@@ -4,6 +4,7 @@ import com.platemill.myapp.domain.Employee;
 import com.platemill.myapp.repository.EmployeeRepository;
 import com.platemill.myapp.repository.search.EmployeeSearchRepository;
 import com.platemill.myapp.web.rest.errors.BadRequestAlertException;
+import com.platemill.myapp.security.AuthoritiesConstants;
 
 import io.github.jhipster.web.util.HeaderUtil;
 import io.github.jhipster.web.util.PaginationUtil;
@@ -19,6 +20,7 @@ import org.springframework.util.MultiValueMap;
 import org.springframework.web.util.UriComponentsBuilder;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.security.access.prepost.PreAuthorize;
 
 import java.net.URI;
 import java.net.URISyntaxException;
@@ -61,6 +63,7 @@ public class EmployeeResource {
      * @throws URISyntaxException if the Location URI syntax is incorrect.
      */
     @PostMapping("/employees")
+    @PreAuthorize("hasRole(\"" + AuthoritiesConstants.ADMIN + "\")")
     public ResponseEntity<Employee> createEmployee(@RequestBody Employee employee) throws URISyntaxException {
         log.debug("REST request to save Employee : {}", employee);
         if (employee.getId() != null) {
@@ -83,6 +86,7 @@ public class EmployeeResource {
      * @throws URISyntaxException if the Location URI syntax is incorrect.
      */
     @PutMapping("/employees")
+    @PreAuthorize("hasRole(\"" + AuthoritiesConstants.ADMIN + "\")")
     public ResponseEntity<Employee> updateEmployee(@RequestBody Employee employee) throws URISyntaxException {
         log.debug("REST request to update Employee : {}", employee);
         if (employee.getId() == null) {
@@ -129,6 +133,7 @@ public class EmployeeResource {
      * @return the {@link ResponseEntity} with status {@code 204 (NO_CONTENT)}.
      */
     @DeleteMapping("/employees/{id}")
+    @PreAuthorize("hasRole(\"" + AuthoritiesConstants.ADMIN + "\")")
     public ResponseEntity<Void> deleteEmployee(@PathVariable Long id) {
         log.debug("REST request to delete Employee : {}", id);
         employeeRepository.deleteById(id);

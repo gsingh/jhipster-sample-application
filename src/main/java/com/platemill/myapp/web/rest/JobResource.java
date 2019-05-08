@@ -4,6 +4,7 @@ import com.platemill.myapp.domain.Job;
 import com.platemill.myapp.repository.JobRepository;
 import com.platemill.myapp.repository.search.JobSearchRepository;
 import com.platemill.myapp.web.rest.errors.BadRequestAlertException;
+import com.platemill.myapp.security.AuthoritiesConstants;
 
 import io.github.jhipster.web.util.HeaderUtil;
 import io.github.jhipster.web.util.PaginationUtil;
@@ -19,6 +20,7 @@ import org.springframework.util.MultiValueMap;
 import org.springframework.web.util.UriComponentsBuilder;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+
 
 import java.net.URI;
 import java.net.URISyntaxException;
@@ -61,6 +63,7 @@ public class JobResource {
      * @throws URISyntaxException if the Location URI syntax is incorrect.
      */
     @PostMapping("/jobs")
+    @PreAuthorize("hasRole(\"" + AuthoritiesConstants.ADMIN + "\")")
     public ResponseEntity<Job> createJob(@RequestBody Job job) throws URISyntaxException {
         log.debug("REST request to save Job : {}", job);
         if (job.getId() != null) {
@@ -83,6 +86,7 @@ public class JobResource {
      * @throws URISyntaxException if the Location URI syntax is incorrect.
      */
     @PutMapping("/jobs")
+    @PreAuthorize("hasRole(\"" + AuthoritiesConstants.ADMIN + "\")")
     public ResponseEntity<Job> updateJob(@RequestBody Job job) throws URISyntaxException {
         log.debug("REST request to update Job : {}", job);
         if (job.getId() == null) {
@@ -135,6 +139,7 @@ public class JobResource {
      * @return the {@link ResponseEntity} with status {@code 204 (NO_CONTENT)}.
      */
     @DeleteMapping("/jobs/{id}")
+    @PreAuthorize("hasRole(\"" + AuthoritiesConstants.ADMIN + "\")")
     public ResponseEntity<Void> deleteJob(@PathVariable Long id) {
         log.debug("REST request to delete Job : {}", id);
         jobRepository.deleteById(id);
